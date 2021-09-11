@@ -1,0 +1,4 @@
+make -C masstree-beta
+make[1]: Entering directory '/home/orenga/sto_orig_25aug/sto/masstree-beta'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/orenga/sto_orig_25aug/sto/masstree-beta'

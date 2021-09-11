@@ -1,0 +1,3 @@
+Throughput: 89651.07 txns/sec
+Throughput: 188244.69 txns/sec
+Throughput: 374787.32 txns/sec

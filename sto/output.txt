@@ -1,0 +1,358 @@
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/MicroBenchmarks.d -MP -include config.h -c -o obj/MicroBenchmarks.o benchmark/MicroBenchmarks.cc
+In file included from sto-core/MVCC.hh:7,
+                 from sto-core/VersionSelector.hh:3,
+                 from benchmark/DB_index.hh:18,
+                 from benchmark/MicroBenchmarks.hh:12,
+                 from benchmark/MicroBenchmarks.cc:2:
+sto-core/MVCCStructs.hh: In instantiation of ‘void MvObject<T>::delete_history(MvObject<T>::history_type*) [with T = long int; MvObject<T>::history_type = MvHistory<long int>]’:
+sto-core/MVCCStructs.hh:292:9:   required from ‘static void MvHistory<T>::gc_deleted_cb(void*) [with T = long int]’
+sto-core/MVCCStructs.hh:275:34:   required from ‘static void MvHistory<T>::gc_committed_cb(void*) [with T = long int]’
+sto-core/MVCCStructs.hh:117:30:   required from ‘void MvHistory<T>::enqueue_for_committed() [with T = long int]’
+sto-core/MVCCStructs.hh:362:13:   required from ‘void MvHistory<T>::flatten(int, bool) [with T = long int]’
+sto-core/MVCCStructs.hh:301:17:   required from ‘void MvHistory<T>::enflatten() [with T = long int]’
+sto-core/MVCCStructs.hh:666:21:   required from ‘T& MvObject<T>::nontrans_access() [with T = long int]’
+datatype/TMvBox.hh:79:30:   required from ‘void TMvBox<T>::nontrans_write(const T&) [with T = long int]’
+datatype/TMvBox.hh:155:31:   required from here
+sto-core/MVCCStructs.hh:557:19: warning: ‘void* memset(void*, int, size_t)’ writing to an object of type ‘MvObject<long int>::history_type’ {aka ‘class MvHistory<long int>’} with no trivial copy-assignment [-Wclass-memaccess]
+  557 |             memset(h, 0xFF, sizeof(MvHistoryBase));
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sto-core/MVCCStructs.hh:72:7: note: ‘MvObject<long int>::history_type’ {aka ‘class MvHistory<long int>’} declared here
+   72 | class MvHistory : protected MvHistoryBase {
+      |       ^~~~~~~~~
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/Packer.d -MP -include config.h -c -o obj/Packer.o sto-core/Packer.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/Transaction.d -MP -include config.h -c -o obj/Transaction.o sto-core/Transaction.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/TRcu.d -MP -include config.h -c -o obj/TRcu.o sto-core/TRcu.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/clp.d -MP -include config.h -c -o obj/clp.o lib/clp.c
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/barrier.d -MP -include config.h -c -o obj/barrier.o lib/barrier.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/SystemProfiler.d -MP -include config.h -c -o obj/SystemProfiler.o lib/SystemProfiler.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/ContentionManager.d -MP -include config.h -c -o obj/ContentionManager.o sto-core/ContentionManager.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/PlatformFeatures.d -MP -include config.h -c -o obj/PlatformFeatures.o lib/PlatformFeatures.cc
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/srandomdev.d -MP -include config.h -c -o srandomdev.o srandomdev.c
+make -C third-party/rpmalloc
+make[1]: Entering directory '/home/orenga/sto_orig_25aug/sto/third-party/rpmalloc'
+ninja
+[1/48] CC rpmalloc/rpmalloc.c
+[2/48] MKDIR lib/linux/debug
+[3/48] CC rpmalloc/rpmalloc.c
+[4/48] MKDIR lib/linux/release
+[5/48] CC rpmalloc/rpmalloc.c
+[6/48] MKDIR bin/linux/debug
+[7/48] CC rpmalloc/rpmalloc.c
+[8/48] MKDIR bin/linux/release
+[9/48] CC rpmalloc/rpmalloc.c
+[10/48] CC rpmalloc/malloc.c
+[11/48] CXX rpmalloc/new.cc
+[12/48] CC rpmalloc/malloc.c
+[13/48] CC rpmalloc/rpmalloc.c
+[14/48] CXX rpmalloc/new.cc
+[15/48] CC rpmalloc/malloc.c
+[16/48] CC rpmalloc/rpmalloc.c
+[17/48] CXX rpmalloc/new.cc
+[18/48] CC rpmalloc/malloc.c
+[19/48] MKDIR lib/linux/debug/x86-64
+[20/48] MKDIR bin/linux/debug/x86-64
+[21/48] MKDIR lib/linux/release/x86-64
+[22/48] MKDIR bin/linux/release/x86-64
+[23/48] CC rpmalloc/rpmalloc.c
+[24/48] CXX rpmalloc/new.cc
+[25/48] CC test/main.c
+[26/48] CC test/thread.c
+[27/48] CC test/thread.c
+[28/48] CC test/main.c
+[29/48] LIB build/ninja/linux/debug/x86-64/rpmalloc-7c2f09b/librpmalloc.a
+[30/48] COPY build/ninja/linux/debug/x86-64/rpmalloc-7c2f09b/librpmalloc.a -> lib/linux/debug/x86-64/librpmalloc.a
+[31/48] SO build/ninja/linux/debug/x86-64/rpmalloc-cccf0ca/librpmalloc.so
+[32/48] SO build/ninja/linux/debug/x86-64/rpmalloc-5aa0e6/librpmallocwrap.so
+[33/48] LINK build/ninja/linux/debug/x86-64/test-57ec084/rpmalloc-test
+[34/48] LIB build/ninja/linux/debug/x86-64/rpmalloc-a8e50b6/librpmallocwrap.a
+[35/48] COPY build/ninja/linux/debug/x86-64/rpmalloc-a8e50b6/librpmallocwrap.a -> lib/linux/debug/x86-64/librpmallocwrap.a
+[36/48] COPY build/ninja/linux/debug/x86-64/rpmalloc-cccf0ca/librpmalloc.so -> bin/linux/debug/x86-64/librpmalloc.so
+[37/48] COPY build/ninja/linux/debug/x86-64/test-57ec084/rpmalloc-test -> bin/linux/debug/x86-64/rpmalloc-test
+[38/48] COPY build/ninja/linux/debug/x86-64/rpmalloc-5aa0e6/librpmallocwrap.so -> bin/linux/debug/x86-64/librpmallocwrap.so
+[39/48] SO build/ninja/linux/release/x86-64/rpmalloc-cccf0ca/librpmalloc.so
+[40/48] LIB build/ninja/linux/release/x86-64/rpmalloc-7c2f09b/librpmalloc.a
+[41/48] SO build/ninja/linux/release/x86-64/rpmalloc-5aa0e6/librpmallocwrap.so
+[42/48] COPY build/ninja/linux/release/x86-64/rpmalloc-7c2f09b/librpmalloc.a -> lib/linux/release/x86-64/librpmalloc.a
+[43/48] LINK build/ninja/linux/release/x86-64/test-57ec084/rpmalloc-test
+[44/48] COPY build/ninja/linux/release/x86-64/rpmalloc-cccf0ca/librpmalloc.so -> bin/linux/release/x86-64/librpmalloc.so
+[45/48] LIB build/ninja/linux/release/x86-64/rpmalloc-a8e50b6/librpmallocwrap.a
+[46/48] COPY build/ninja/linux/release/x86-64/test-57ec084/rpmalloc-test -> bin/linux/release/x86-64/rpmalloc-test
+[47/48] COPY build/ninja/linux/release/x86-64/rpmalloc-5aa0e6/librpmallocwrap.so -> bin/linux/release/x86-64/librpmallocwrap.so
+[48/48] COPY build/ninja/linux/release/x86-64/rpmalloc-a8e50b6/librpmallocwrap.a -> lib/linux/release/x86-64/librpmallocwrap.a
+make[1]: Leaving directory '/home/orenga/sto_orig_25aug/sto/third-party/rpmalloc'
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/MVCCStructs.d -MP -include config.h -c -o obj/MVCCStructs.o sto-core/MVCCStructs.cc
+make -C masstree-beta
+make[1]: Entering directory '/home/orenga/sto_orig_25aug/sto/masstree-beta'
+mkdir -p .deps
+touch .deps/stamp
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/test_atomics.d -MP -include config.h -c -o test_atomics.o test_atomics.cc
+In file included from value_bag.hh:19,
+                 from test_atomics.cc:30:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from value_bag.hh:19,
+                 from test_atomics.cc:30:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/string.d -MP -include config.h -c -o string.o string.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/straccum.d -MP -include config.h -c -o straccum.o straccum.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/kvrandom.d -MP -include config.h -c -o kvrandom.o kvrandom.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/json.d -MP -include config.h -c -o json.o json.cc
+In file included from json.cc:17:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from json.cc:17:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+json.cc: In member function ‘void lcdf::Json::ObjectJson::grow(bool)’:
+json.cc:117:46: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of type ‘struct lcdf::Json::ObjectItem’ with no trivial copy-assignment; use copy-initialization instead [-Wclass-memaccess]
+  117 |             memcpy(oi, ob, sizeof(ObjectItem));
+      |                                              ^
+In file included from json.cc:17:
+json.hh:436:14: note: ‘struct lcdf::Json::ObjectItem’ declared here
+  436 | struct Json::ObjectItem {
+      |              ^~~~~~~~~~
+json.cc: In member function ‘void lcdf::Json::hard_uniqueify_array(bool, int)’:
+json.cc:268:94: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+  268 |                     memset(&u_.a.x->a[u_.a.x->size], 0, sizeof(Json) * (i + 1 - u_.a.x->size));
+      |                                                                                              ^
+In file included from json.cc:17:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+json.cc: In member function ‘void* lcdf::Json::uniqueify_array_insert(bool, lcdf::Json::size_type)’:
+json.cc:343:82: warning: ‘void* memmove(void*, const void*, size_t)’ writing to an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+  343 |         memmove(&u_.a.x->a[pos + 1], &u_.a.x->a[pos], (size - pos) * sizeof(Json));
+      |                                                                                  ^
+In file included from json.cc:17:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+json.cc: In member function ‘lcdf::Json::array_iterator lcdf::Json::erase(lcdf::Json::array_iterator, lcdf::Json::array_iterator)’:
+json.cc:358:49: warning: ‘void* memmove(void*, const void*, size_t)’ writing to an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use copy-assignment or copy-initialization instead [-Wclass-memaccess]
+  358 |                     (size - lpos) * sizeof(Json));
+      |                                                 ^
+In file included from json.cc:17:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+json.cc: In member function ‘lcdf::Json& lcdf::Json::hard_get_insert(lcdf::Json::size_type)’:
+json.cc:534:86: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+  534 |             memset(&u_.a.x->a[u_.a.x->size], 0, sizeof(Json) * (x + 1 - u_.a.x->size));
+      |                                                                                      ^
+In file included from json.cc:17:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/compiler.d -MP -include config.h -c -o compiler.o compiler.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/kvio.d -MP -include config.h -c -o kvio.o kvio.cc
+g++ -g -W -Wall -O3 -o test_atomics test_atomics.o string.o straccum.o kvrandom.o json.o compiler.o kvio.o -ljemalloc  -lnuma  -lpthread -lm
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/mtd.d -MP -include config.h -c -o mtd.o mtd.cc
+In file included from mtd.cc:50:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from mtd.cc:50:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+In file included from mtd.cc:54:
+log.hh: In function ‘void prepare_thread(threadinfo*)’:
+log.hh:194:18: warning: array subscript -1 is below array bounds of ‘const loginfo [0]’ [-Warray-bounds]
+  194 |     return li_[-1].lsi_.size_;
+      |            ~~~~~~^
+log.hh: In function ‘int main(int, char**)’:
+log.hh:194:18: warning: array subscript -1 is below array bounds of ‘const loginfo [0]’ [-Warray-bounds]
+  194 |     return li_[-1].lsi_.size_;
+      |            ~~~~~~^
+log.hh: In function ‘void* conc_checkpointer(void*)’:
+log.hh:194:18: warning: array subscript -1 is below array bounds of ‘const loginfo [0]’ [-Warray-bounds]
+  194 |     return li_[-1].lsi_.size_;
+      |            ~~~~~~^
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/log.d -MP -include config.h -c -o log.o log.cc
+In file included from kvrow.hh:21,
+                 from log.cc:18:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from kvrow.hh:21,
+                 from log.cc:18:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+log.cc: In static member function ‘static logset* logset::make(int)’:
+log.cc:165:15: warning: array subscript -1 is below array bounds of ‘loginfo [0]’ [-Warray-bounds]
+  165 |     ls->li_[-1].lsi_.size_ = size;
+      |     ~~~~~~~~~~^
+log.cc:166:15: warning: array subscript -1 is below array bounds of ‘loginfo [0]’ [-Warray-bounds]
+  166 |     ls->li_[-1].lsi_.allocation_offset_ = (int) (x - ls_pos);
+      |     ~~~~~~~~~~^
+In file included from log.cc:16:
+log.hh: In static member function ‘static void logset::free(logset*)’:
+log.hh:194:18: warning: array subscript -1 is below array bounds of ‘const loginfo [0]’ [-Warray-bounds]
+  194 |     return li_[-1].lsi_.size_;
+      |            ~~~~~~^
+log.cc:175:55: warning: array subscript -1 is below array bounds of ‘loginfo [0]’ [-Warray-bounds]
+  175 |     delete[] (reinterpret_cast<char*>(ls) + ls->li_[-1].lsi_.allocation_offset_);
+      |                                             ~~~~~~~~~~^
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/checkpoint.d -MP -include config.h -c -o checkpoint.o checkpoint.cc
+In file included from kvrow.hh:21,
+                 from checkpoint.hh:18,
+                 from checkpoint.cc:16:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from kvrow.hh:21,
+                 from checkpoint.hh:18,
+                 from checkpoint.cc:16:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/file.d -MP -include config.h -c -o file.o file.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/misc.d -MP -include config.h -c -o misc.o misc.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/query_masstree.d -MP -include config.h -c -o query_masstree.o query_masstree.cc
+In file included from masstree_stats.hh:19,
+                 from query_masstree.cc:25:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from masstree_stats.hh:19,
+                 from query_masstree.cc:25:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+In file included from query_masstree.cc:26:
+masstree_print.hh: In instantiation of ‘void Masstree::internode<P>::print(FILE*, const char*, int, int) const [with P = Masstree::default_query_table_params; FILE = _IO_FILE]’:
+masstree_struct.hh:587:9:   required from ‘void Masstree::node_base<P>::print(FILE*, const char*, int, int) const [with P = Masstree::default_query_table_params; FILE = _IO_FILE]’
+masstree_print.hh:182:5:   required from ‘void Masstree::basic_table<P>::print(FILE*) const [with P = Masstree::default_query_table_params; FILE = _IO_FILE]’
+query_masstree.cc:339:16:   required from here
+masstree_print.hh:145:15: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of type ‘class Masstree::internode<Masstree::default_query_table_params>’ with no trivial copy-assignment; use copy-initialization instead [-Wclass-memaccess]
+  145 |         memcpy(&copy, this, sizeof(copy));
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from query_masstree.cc:18:
+masstree_struct.hh:100:7: note: ‘class Masstree::internode<Masstree::default_query_table_params>’ declared here
+  100 | class internode : public node_base<P> {
+      |       ^~~~~~~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/value_string.d -MP -include config.h -c -o value_string.o value_string.cc
+In file included from kvrow.hh:21,
+                 from value_string.cc:16:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from kvrow.hh:21,
+                 from value_string.cc:16:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/value_array.d -MP -include config.h -c -o value_array.o value_array.cc
+In file included from kvrow.hh:21,
+                 from value_array.cc:16:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from kvrow.hh:21,
+                 from value_array.cc:16:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/value_versioned_array.d -MP -include config.h -c -o value_versioned_array.o value_versioned_array.cc
+In file included from kvrow.hh:21,
+                 from value_versioned_array.cc:16:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from kvrow.hh:21,
+                 from value_versioned_array.cc:16:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/string_slice.d -MP -include config.h -c -o string_slice.o string_slice.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/str.d -MP -include config.h -c -o str.o str.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/msgpack.d -MP -include config.h -c -o msgpack.o msgpack.cc
+In file included from msgpack.hh:3,
+                 from msgpack.cc:1:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from msgpack.hh:3,
+                 from msgpack.cc:1:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/clp.d -MP -include config.h -c -o clp.o clp.c
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/memdebug.d -MP -include config.h -c -o memdebug.o memdebug.cc
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/kvthread.d -MP -include config.h -c -o kvthread.o kvthread.cc
+kvthread.cc: In constructor ‘threadinfo::threadinfo(int, int)’:
+kvthread.cc:33:34: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class threadinfo’ with no trivial copy-assignment [-Wclass-memaccess]
+   33 |     memset(this, 0, sizeof(*this));
+      |                                  ^
+In file included from kvthread.cc:16:
+kvthread.hh:94:7: note: ‘class threadinfo’ declared here
+   94 | class threadinfo {
+      |       ^~~~~~~~~~
+ar cru libjson.a json.o string.o straccum.o str.o msgpack.o clp.o kvrandom.o compiler.o memdebug.o kvthread.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+g++ -g -W -Wall -O3 -o mtd mtd.o log.o checkpoint.o file.o misc.o query_masstree.o value_string.o value_array.o value_versioned_array.o string_slice.o kvio.o libjson.a -ljemalloc  -lnuma  -lpthread -lm
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/mtclient.d -MP -include config.h -c -o mtclient.o mtclient.cc
+In file included from mtclient.cc:39:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from mtclient.cc:39:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/testrunner.d -MP -include config.h -c -o testrunner.o testrunner.cc
+g++ -g -W -Wall -O3 -o mtclient mtclient.o misc.o testrunner.o kvio.o libjson.a  -lnuma  -lpthread -lm
+g++ -std=c++17 -g -W -Wall -O3 -MD -MF .deps/mttest.d -MP -include config.h -c -o mttest.o mttest.cc
+In file included from kvrow.hh:21,
+                 from query_masstree.hh:19,
+                 from mttest.cc:58:
+json.hh: In constructor ‘lcdf::Json::Json(lcdf::Json&&)’:
+json.hh:1521:28: warning: ‘void* memset(void*, int, size_t)’ clearing an object of type ‘class lcdf::Json’ with no trivial copy-assignment; use assignment or value-initialization instead [-Wclass-memaccess]
+ 1521 |     memset(&x, 0, sizeof(x));
+      |                            ^
+In file included from kvrow.hh:21,
+                 from query_masstree.hh:19,
+                 from mttest.cc:58:
+json.hh:44:7: note: ‘class lcdf::Json’ declared here
+   44 | class Json {
+      |       ^~~~
+g++ -g -W -Wall -O3 -o mttest mttest.o misc.o checkpoint.o query_masstree.o value_string.o value_array.o value_versioned_array.o string_slice.o testrunner.o kvio.o libjson.a -ljemalloc  -lnuma  -lpthread -lm
+make[1]: Leaving directory '/home/orenga/sto_orig_25aug/sto/masstree-beta'
+g++ -std=c++17 -Imasstree-beta -Ithird-party/xxHash -Ithird-party/rpmalloc -Ilib -Isto-core -Ilegacy -Idatatype -Ibenchmark  -DMALLOC=2 -W -Wall -Wextra -O3 -g -MD -MF .deps/DB_index.d -MP -include config.h -c -o obj/DB_index.o benchmark/DB_index.cc
+In file included from sto-core/MVCC.hh:7,
+                 from sto-core/VersionSelector.hh:3,
+                 from benchmark/DB_index.hh:18,
+                 from benchmark/DB_index.cc:1:
+sto-core/MVCCStructs.hh: In instantiation of ‘void MvObject<T>::delete_history(MvObject<T>::history_type*) [with T = long int; MvObject<T>::history_type = MvHistory<long int>]’:
+sto-core/MVCCStructs.hh:292:9:   required from ‘static void MvHistory<T>::gc_deleted_cb(void*) [with T = long int]’
+sto-core/MVCCStructs.hh:275:34:   required from ‘static void MvHistory<T>::gc_committed_cb(void*) [with T = long int]’
+sto-core/MVCCStructs.hh:117:30:   required from ‘void MvHistory<T>::enqueue_for_committed() [with T = long int]’
+sto-core/MVCCStructs.hh:362:13:   required from ‘void MvHistory<T>::flatten(int, bool) [with T = long int]’
+sto-core/MVCCStructs.hh:301:17:   required from ‘void MvHistory<T>::enflatten() [with T = long int]’
+sto-core/MVCCStructs.hh:666:21:   required from ‘T& MvObject<T>::nontrans_access() [with T = long int]’
+datatype/TMvBox.hh:79:30:   required from ‘void TMvBox<T>::nontrans_write(const T&) [with T = long int]’
+datatype/TMvBox.hh:155:31:   required from here
+sto-core/MVCCStructs.hh:557:19: warning: ‘void* memset(void*, int, size_t)’ writing to an object of type ‘MvObject<long int>::history_type’ {aka ‘class MvHistory<long int>’} with no trivial copy-assignment [-Wclass-memaccess]
+  557 |             memset(h, 0xFF, sizeof(MvHistoryBase));
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sto-core/MVCCStructs.hh:72:7: note: ‘MvObject<long int>::history_type’ {aka ‘class MvHistory<long int>’} declared here
+   72 | class MvHistory : protected MvHistoryBase {
+      |       ^~~~~~~~~
+g++  -DMALLOC=2 -W -Wall -Wextra -O3 -g -o micro_bench obj/MicroBenchmarks.o obj/Packer.o obj/Transaction.o obj/TRcu.o obj/clp.o obj/barrier.o obj/SystemProfiler.o obj/ContentionManager.o obj/PlatformFeatures.o srandomdev.o third-party/rpmalloc/lib/linux/release/x86-64/librpmallocwrap.a obj/MVCCStructs.o masstree-beta/kvio.o masstree-beta/misc.o masstree-beta/checkpoint.o masstree-beta/string_slice.o obj/DB_index.o  -lnuma  masstree-beta/libjson.a -ldl -lpthread -lm -lnuma
